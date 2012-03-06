@@ -6,11 +6,17 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <% if @user.todos.any? %>
+        <table class="todos">
+          <%= render @todos %>
+        </table>
+        <%= will_paginate @todos %>
+      <% end %>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
-      <strong>email</strong> <%= @user.email %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+      <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+      <strong>ToDo Items</strong> <%= @user.todos.count %>
     </td>
   </tr>
 </table>

@@ -1,0 +1,17 @@
+<tr>
+  <td class="todo">
+    <span class="title">Title:<%= todo.title %></span>
+    <span class="due">Due Date: <%= todo.due_date %></span>
+    <span class="content">Content:<%= todo.content %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(todo.created_at) %> ago.
+    </span>
+  </td>
+  <% if current_user?(todo.user) %>
+    <td>
+      <%= link_to "delete", todo, method: :delete,
+                                       confirm: "You sure?",
+                                       title: todo.title %>
+    </td>
+  <% end %>
+</tr>

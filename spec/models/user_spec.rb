@@ -27,6 +27,9 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:microposts) }
+  it { should respond_to(:todos) }
+  it { should respond_to(:feed) }
   
   it { should be_valid }
 
@@ -133,5 +136,62 @@ describe User do
     before { @user.toggle!(:admin) }
 
     it { should be_admin }
+  end
+
+  describe "micropost associations" do
+
+    before { @user.save }
+    let!(:older_micropost) do 
+      FactoryGirl.create(:micropost, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_micropost) do
+      FactoryGirl.create(:micropost, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right microposts in the right order" do
+      @user.microposts.should == [newer_micropost, older_micropost]
+    end
+
+    it "should destroy associated microposts" do
+      microposts = @user.microposts
+      @user.destroy
+      microposts.each do |micropost|
+        Micropost.find_by_id(micropost.id).should be_nil
+      end
+    end
+  end
+
+  describe "todo associations" do
+
+    before { @user.save }
+    let!(:older_todo) do 
+      FactoryGirl.create(:todo, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_todo) do
+      FactoryGirl.create(:todo, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right todos in the right order" do
+      @user.todos.should == [newer_todo, older_todo]
+    end
+
+    it "should destroy associated todos" do
+      todos = @user.todos
+      @user.destroy
+      todos.each do |todo|
+        Todo.find_by_id(todo.id).should be_nil
+      end
+    end
+
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:todo, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_todo) }
+      its(:feed) { should include(older_todo) }
+      its(:feed) { should_not include(unfollowed_post) }
+    end
+
   end
 end

@@ -1,0 +1,23 @@
+<tr id="<%= feed_item.id %>">
+  <td class="gravatar">
+    <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+  </td>
+  <td class="todo">
+    <span class="user">
+      <%= link_to feed_item.user.name, feed_item.user %>
+    </span>
+    <span class="title">Title:<%= feed_item.title %>:</span>
+    <span class="due">Due Date:<%= feed_item.due_date %>:</span>
+    <span class="content">Content:<%= feed_item.content %>:</span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+    </span>
+  </td>
+  <% if current_user?(feed_item.user) %>
+    <td>
+      <%= link_to "delete", feed_item, method: :delete,
+                                       confirm: "You sure?",
+                                       title: feed_item.title %>
+    </td>
+  <% end %>
+</tr>

@@ -185,3 +185,82 @@ ul.users {
     list-style: none;
   }
 }
+
+h1.todo {
+  margin-bottom: 0.3em;
+}
+
+table.todos {
+  margin-top: 1em;
+
+  tr {
+    height: 70px;
+
+    &:nth-child(2n) td, tbody tr.even td {
+      background: white
+    }
+
+    td.gravatar {
+      border-top: 1px solid #ccc;
+      vertical-align: top;
+      width: 50px;
+    }
+
+    td.todo {
+      border-top: 1px solid #ccc;
+      vertical-align: top;
+      padding-top: 10px;
+
+      span.title {
+        font-weight:bold;
+        width:100%;
+        display: block;
+        font-size: 100%;
+      }
+
+      span.due {
+        font-style:italic;
+        width:100%;
+        display: block;
+        font-size: 100%;
+      }
+
+      span.content {
+        width:100%;
+        display: block;
+        font-size: 95%;
+      }
+
+      span.timestamp {
+        display: block;
+        font-size: 85%;
+        color: #666;
+      }
+    }
+  }
+}
+
+div.user_info {
+  img {
+    padding-right: 0.1em;
+  }
+  a {
+    text-decoration: none;
+  }
+  span.user_name {
+    position: absolute;
+  }
+  span.todos {
+    font-size: 80%;
+
+  }
+}
+
+form.new_todo {
+  margin-bottom: 2em;
+
+  textarea {
+    height: 4em;
+    margin-bottom: 0;
+  }
+}
