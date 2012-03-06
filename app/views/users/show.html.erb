@@ -1,3 +1,4 @@
+<% provide :title, @user.name %>
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
@@ -8,6 +9,7 @@
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
+      <strong>email</strong> <%= @user.email %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %>
     </td>
   </tr>
