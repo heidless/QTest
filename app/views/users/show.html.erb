@@ -1,4 +1,5 @@
 <% provide :title, @user.name %>
+Tester
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
@@ -7,6 +8,7 @@
         <%= @user.name %>
       </h1>
       <% if @user.todos.any? %>
+        <%= will_paginate @todos %>
         <table class="todos">
           <%= render @todos %>
         </table>
