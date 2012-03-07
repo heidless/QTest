@@ -2,8 +2,8 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     Rake::Task['db:reset'].invoke
-    admin = User.create!(name: "Example User",
-                         email: "example@railstutorial.org",
+    admin = User.create!(name: "Quipper P",
+                         email: "lockhart.r@gmail.com",
                          password: "foobar",
                          password_confirmation: "foobar")
     admin.toggle!(:admin)
@@ -21,7 +21,8 @@ namespace :db do
     50.times do
       content = Faker::Lorem.sentence(5)
       title = Faker::Lorem.sentence(5)
-      users.each { |user| user.todos.create!(title: title, content: content) }
+      due_date = Date.tomorrow
+      users.each { |user| user.todos.create!(title: title, content: content, due_date: due_date) }
     end
   end
 end

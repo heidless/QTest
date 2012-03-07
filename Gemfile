@@ -32,6 +32,8 @@ group :test do
   gem 'factory_girl_rails', '1.4.0'
   gem 'cucumber-rails', '1.2.1'
   gem 'database_cleaner', '0.7.0'
+  gem 'Selenium', '1.1.14'
+  gem 'launchy'
 end
 
 group :production do

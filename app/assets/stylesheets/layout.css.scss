@@ -136,6 +136,12 @@ td.sidebar {
 
 div.field, div.actions {
   margin-bottom: 10px;
+
+  span.todo_label {
+    float:left;
+    font-size:1em;
+    width:100px;
+  }
 }
 
 .field_with_errors {
@@ -218,6 +224,11 @@ table.todos {
         font-size: 100%;
       }
 
+      span.overdue {
+        padding-left:10px;
+        background:#F57DAD;
+      }
+
       span.due {
         font-style:italic;
         width:100%;
@@ -229,6 +240,10 @@ table.todos {
         width:100%;
         display: block;
         font-size: 95%;
+        background:#C3F5BA;
+        margin-top:5px;
+        margin-bottom:5px;
+        padding-left:10px;
       }
 
       span.timestamp {

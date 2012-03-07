@@ -3,12 +3,17 @@
     <%= link_to gravatar_for(feed_item.user), feed_item.user %>
   </td>
   <td class="todo">
+    <% if feed_item.due_date < @today %>
+      <% date_class = "overdue" %>
+    <% else %>      
+      <% date_class = "pending" %>
+    <% end %>
     <span class="user">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
-    <span class="title">Title:<%= feed_item.title %>:</span>
-    <span class="due">Due Date:<%= feed_item.due_date %>:</span>
-    <span class="content">Content:<%= feed_item.content %>:</span>
+    <span class="title"><%= feed_item.title %>:</span>
+    <span class="due round <%= date_class %>">Due Date:<%= feed_item.due_date.strftime('%d/%m/%Y') %>:</span>
+    <span class="content round"><%= feed_item.content %>:</span>
     <span class="timestamp">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>

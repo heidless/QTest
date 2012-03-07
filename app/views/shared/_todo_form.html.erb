@@ -1,12 +1,15 @@
 <%= form_for(@todo) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
+    <span class="todo_label"><%= f.label :title %></span>
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <span class="todo_label"><%= f.label :due_date %></span>
     <%= f.text_field :due_date %>
   </div>
   <div class="field">
+    <span class="todo_label"><%= f.label :content %></span>
     <%= f.text_area :content %>
   </div>
   <div class="actions">

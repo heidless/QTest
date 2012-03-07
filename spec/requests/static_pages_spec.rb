@@ -11,7 +11,7 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path }
-    let(:heading)    { 'Sample App' }
+    let(:heading)    { 'Quipper Todo' }
     let(:page_title) { 'Home' }
 
     it_should_behave_like "all static pages"
@@ -19,18 +19,20 @@ describe "Static pages" do
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
       before do
-        FactoryGirl.create(:todo, user: user, content: "Lorem ipsum")
-        FactoryGirl.create(:todo, user: user, content: "Dolor sit amet")
+        @today = Date.today
+        FactoryGirl.create(:todo, user: user, content: "Lorem ipsum", due_date: "02/03/2012")
+        FactoryGirl.create(:todo, user: user, content: "Dolor sit amet", due_date: "02/03/2012")
         sign_in(user)
         visit root_path
       end
 
-      it "should render the user's feed" do
+      it "should render the user's feed", :js => false do
         user.feed.each do |item|
           page.should have_selector("tr##{item.id}", text: item.content)
         end
       end
     end
+
   end
 
   describe "Help page" do

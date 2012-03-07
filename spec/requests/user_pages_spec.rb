@@ -146,7 +146,7 @@ describe "User pages" do
         fill_in "Confirmation", with: user.password
         click_button "Update"
       end
-
+      
       it { should have_selector('title', text: new_name) }
       it { should have_selector('div.flash.success') }
       it { should have_link('Sign out', :href => signout_path) }
