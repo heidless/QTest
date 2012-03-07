@@ -15,7 +15,8 @@ FactoryGirl.define do
   end
 
   factory :todo do
-	title "Lorem ipsum"
+  title "Lorem ipsum"
+  due_date "07/05/2012"
 	user
   end
 

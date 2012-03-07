@@ -4,8 +4,13 @@
   <table class="front">
     <tr>
       <td class="main">
-        <h1 class="todo">Thing to do:</h1>
-        <%= render 'shared/todo_form' %>
+        <div id="addNewThing" class="round">
+          Add new thing to do!
+        </div>
+        <div id="new_thing">
+          <h1 class="todo">New Thing to do:</h1>
+          <%= render 'shared/todo_form' %>
+        </div>
         <%= render 'shared/feed' %>
       </td>
     </tr>

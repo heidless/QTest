@@ -11,18 +11,25 @@
     <span class="user">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
-    <span class="title"><%= feed_item.title %>:</span>
+    <span class="title"><%= feed_item.title %> (<%= feed_item.status %>)</span>
     <span class="due round <%= date_class %>">Due Date:<%= feed_item.due_date.strftime('%d/%m/%Y') %>:</span>
     <span class="content round"><%= feed_item.content %>:</span>
     <span class="timestamp">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>
+    <div class="editThing round">
+        Edit thing to do!
+    </div>
+    <% if current_user?(feed_item.user) %>
+      <div class="delete_todo round">
+          <%= link_to "delete", feed_item, method: :delete,
+                                           confirm: "You sure?",
+                                           title: feed_item.title %>
+      </div>
+    <% end %>
+    <div class="edit_thing round">
+      <%= render 'shared/todo_edit_form', this_item: feed_item %>
+    </div>
+
   </td>
-  <% if current_user?(feed_item.user) %>
-    <td>
-      <%= link_to "delete", feed_item, method: :delete,
-                                       confirm: "You sure?",
-                                       title: feed_item.title %>
-    </td>
-  <% end %>
 </tr>

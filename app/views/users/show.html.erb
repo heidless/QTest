@@ -1,5 +1,4 @@
 <% provide :title, @user.name %>
-Tester
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
@@ -7,6 +6,7 @@ Tester
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <%= link_to "Manage Things to Do", root_path, class: "manage_button round" %>
       <% if @user.todos.any? %>
         <%= will_paginate @todos %>
         <table class="todos">

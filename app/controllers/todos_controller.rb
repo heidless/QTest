@@ -18,6 +18,16 @@ class TodosController < ApplicationController
     redirect_back_or root_path
   end
 
+  def update
+    @todo = Todo.find_by_id(params[:todo][:id])
+    if @todo.update_attributes(params[:todo])
+      flash[:success] = "Thing to do updated for ID:" + params[:todo][:id].to_s + ":"
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
     def correct_user

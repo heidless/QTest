@@ -90,6 +90,23 @@ a.signup_button {
   padding: 20px;
 }
 
+/* Manage button */
+
+a.manage_button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:30px;
+  margin-bottom:10px;
+  display: block;
+  text-align: center;
+  width: 250px;
+  color: white;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 5px;
+}
+
 /* Round corners */
 
 .round {
@@ -278,4 +295,63 @@ form.new_todo {
     height: 4em;
     margin-bottom: 0;
   }
+}
+
+#new_thing {
+  display:none;
+}
+
+.edit_thing {
+  display:none;
+  width:100%;
+  background:#ddd;
+  margin-top:70px;
+  padding:10px;
+}
+
+.editThing {
+  float:left;
+  margin-top:30px;
+  margin-bottom:10px;
+  display: block;
+  text-align: center;
+  width: 150px;
+  color: white;
+  background: #006400;
+  font-size: 100%;
+  font-weight: bold;
+  padding: 2px;
+}
+
+#addNewThing {
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:30px;
+  margin-bottom:10px;
+  display: block;
+  text-align: center;
+  width: 250px;
+  color: white;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 2px;
+}
+
+.delete_todo {
+  float:right;
+  margin-top:30px;
+  margin-bottom:10px;
+  display: block;
+  text-align: center;
+  width: 150px;
+  color: white;
+  background: red;
+  font-size: 100%;
+  font-weight: bold;
+  padding: 2px;
+}
+
+#site-header {
+  font-size:3em;
 }

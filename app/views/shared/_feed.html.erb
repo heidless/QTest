@@ -1,4 +1,3 @@
-<%= link_to_function "test js", '$(this).html("js works")' %>
 <% if @feed_items.any? %>
   <table class="todos">
     <%= render partial: 'shared/feed_item', collection: @feed_items %>

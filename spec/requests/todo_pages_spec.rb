@@ -15,12 +15,6 @@ describe "Todo pages" do
       it "should not create a todo" do
         expect { click_button "Submit" }.should_not change(Todo, :count)
       end
-
-      describe "error messages" do
-        let(:error) { '1 error prohibited this todo from being saved' }
-        before { click_button "Submit" }
-        it { should have_content(error) } 
-      end
     end
 
     describe "with valid information" do

@@ -2,19 +2,21 @@
   jQuery.noConflict();
 </script>
 
-<%= form_for(@todo) do |f| %>
+<%= form_for(this_item) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  <%= f.hidden_field :id %>
   <div class="field">
     <span class="todo_label"><%= f.label :title %></span>
     <%= f.text_field :title %>
   </div>
   <div class="field">
     <span class="todo_label"><%= f.label :due_date %></span>
-    <%= f.text_field :due_date, class: 'new_date' %>
+    <%= f.text_field :due_date, value: this_item.due_date.strftime('%d %b %Y'), class: 'due_date' %>
   </div>
   <div class="field">
     <span class="todo_label"><%= f.label :status %></span>
-    <%= select( "todo", "status", {"Pending" => "pending", "Completed" => "complete"}) %>  </div>
+    <%= select( "todo", "status", { "Completed" => "complete", "Pending" => "pending"}) %>
+  </div>
   <div class="field">
     <span class="todo_label"><%= f.label :content %></span>
     <%= f.text_area :content %>
