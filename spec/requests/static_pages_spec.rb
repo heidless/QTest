@@ -35,14 +35,6 @@ describe "Static pages" do
 
   end
 
-  describe "Help page" do
-    before { visit help_path }
-    let(:heading)    { 'Help' }
-    let(:page_title) { 'Help' }
-
-    it_should_behave_like "all static pages"
-  end
-
   describe "About page" do
     before { visit about_path }
     let(:heading)    { 'About' }
@@ -62,9 +54,7 @@ describe "Static pages" do
   it "should have the right links on the layout" do
     visit root_path
     click_link "About"
-    page.should have_selector 'title', text: full_title('About Us')
-    click_link "Help"
-    page.should have_selector 'title', text: full_title('Help')
+    page.should have_selector 'title', text: full_title('About')
     click_link "Contact"
     page.should have_selector 'title', text: full_title('Contact')
     click_link "Home"

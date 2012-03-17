@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #cff;
+  background: #29264d;
 }
 
 header {
@@ -19,7 +19,7 @@ section {
   margin-top: 1em;
   font-size: 120%;
   padding: 20px;
-  background: white;
+  background: #ddd;
 }
 
 section h1 {
@@ -29,7 +29,7 @@ section h1 {
 /* Links */
 
 a {
-  color: #09c;
+  color: #29264d;
   text-decoration: none;
 
   &:hover {
@@ -46,7 +46,7 @@ a {
 
 nav {
   float: right;
-  background-color: white;
+  background-color: black;
   padding: 0 0.7em;
   white-space: nowrap;
 }
@@ -346,7 +346,7 @@ form.new_todo {
   text-align: center;
   width: 150px;
   color: white;
-  background: red;
+  background: #bf0000;
   font-size: 100%;
   font-weight: bold;
   padding: 3px;
@@ -354,4 +354,11 @@ form.new_todo {
 
 #site-header {
   font-size:3em;
+  color:#eee;
+}
+
+#homeIntro {
+  width:300px;
+  margin-left:auto;
+  margin-right:auto;
 }
